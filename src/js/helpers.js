@@ -1,4 +1,3 @@
-import { async } from 'regenerator-runtime';
 import { TIMEOUT_SEC } from './config.js';
 
 // fetch fails after some time so it doesnt run forever
