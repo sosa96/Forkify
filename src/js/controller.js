@@ -22,6 +22,9 @@ const controlRecipes = async function () {
     if (!id) return;
     recipeView.renderSpinner();
 
+    // Update results view to mark selected search results
+    resultsView.update(model.getSearchResultsPage());
+
     // Loading recipe
     // doesnt return anything so it doesnt need to be stored
     await model.loadRecipe(id);
@@ -68,7 +71,9 @@ const controlServings = function (newServings) {
   model.updateServings(newServings);
 
   // Update the recipe view
-  recipeView.render(model.state.recipe);
+  // recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
+  // Difference is that update will only update text and attributes in dom without having to rerender entire view
 };
 
 const init = function () {
